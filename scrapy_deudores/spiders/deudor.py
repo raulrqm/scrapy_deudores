@@ -10,7 +10,7 @@ locale.setlocale(locale.LC_ALL, "en_US.UTF8")
 
 class DeudorSpider(scrapy.Spider):
     name = "deudor"
-    allowed_domains = ["pisaq.minjus.gob.pe"]
+    allowed_domains = ["ot.minjus.gob.pe"]
 
     def __init__(self, start_id='', end_id=''):
         self.start_id = int(start_id)
@@ -18,7 +18,7 @@ class DeudorSpider(scrapy.Spider):
 
     def start_requests(self):
         for i in range(self.start_id, self.end_id + 1):
-            url = 'http://pisaq.minjus.gob.pe:8080/sisca_web/'
+            url = 'http://ot.minjus.gob.pe:8080/sisca_web/'
             url += 'DeudoresWebAction_verDeudorWeb.action?deudor.id=' + str(i)
             yield Request(url, callback=self.parse)
 
